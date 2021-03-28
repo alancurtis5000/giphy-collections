@@ -1,0 +1,15 @@
+{
+  "collections": [
+    {
+      "name": "Collection 1",
+      "gifs": [
+        {
+          "id": "tiktok-cat-dIVa0pwco4Mj5rQ7gy",
+          "title": "happy cat GIF by TikTok",
+          "url": "https://media2.giphy.com/media/dIVa0pwco4Mj5rQ7gy/200.gif"
+        }
+      ],
+      "id": 1
+    }
+  ]
+}
