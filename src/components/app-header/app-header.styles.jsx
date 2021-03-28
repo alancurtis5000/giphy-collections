@@ -15,6 +15,11 @@ export const AppHeaderStyles = styled.header`
     .page-title{
       color: white;
     }
+    .left-group{  
+      display: flex;
+      align-items: center;
+      justify-content: center; 
+    }
     .right-group {
       display: flex;
       align-items: center;
