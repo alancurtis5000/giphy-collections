@@ -2,11 +2,6 @@ import React from "react";
 import { useDrop } from "react-dnd";
 import CardCollection from "../card-collection/card-collection.component";
 
-/*
-Notes:
-   -Dropzone is just extra functionality added to the CardCollection
-*/
-
 const DndTypes = {
   RESULT: "result",
 };

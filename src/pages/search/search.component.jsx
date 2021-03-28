@@ -12,19 +12,6 @@ import { connect } from "react-redux";
 import { Success, Active } from "../../lib";
 import ButtonCustom from "../../components/button-custom/button-custom.component";
 
-/*
-Notes:
-  - SearchPage 
-    - Map over my Gif result from the Api call Making every gif Draggable.
-    - Map over collections I get from Api call and make each one of those a unique dropzone.
-  - functionality:
-    - ability to search gifs
-    - drag gifs from results to collection
-    - Add new collections
-    - Select collections to view and edit them
-    - get more gifs and append the next page of results.
-*/
-
 const SearchPage = (props) => {
   const { collections, openModal, gifs, getMoreGifs } = props;
 

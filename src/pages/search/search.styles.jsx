@@ -1,14 +1,5 @@
 import styled from "styled-components";
 
-/*
-Notes:
-  - SearchStyles 
-    - Used CssGrid to organize page into sections. 
-    - app is made mobile first.
-    - If collections or results go off the page you have individual scroll bars
-      to control what you look at and where to drop it.
-*/
-
 export const SearchStyles = styled.div`
   display: grid;
   grid-template-columns: 1fr 108px;

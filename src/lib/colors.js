@@ -1,8 +1,4 @@
 // TODO: add description
-/*
-Notes:
-   - I used this file as the global styles colors
-*/
 // ===== Color constants =====
 
 export const DarkGray = "#282c34";

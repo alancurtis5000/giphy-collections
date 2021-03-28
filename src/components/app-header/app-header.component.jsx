@@ -5,13 +5,6 @@ import { withRouter } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 import poweredByGiphy from "../../images/powered-by-giphy.png";
 
-/*
-Notes:
-   - If my location is "x" display matching page Title.
-   - can use either NavLink or history.push for navigation.
-   - only display the back button if you are on the collection page
-*/
-
 const AppHeader = (props) => {
   const { history, location } = props;
   const [pageTitle, setPageTitle] = useState("");

@@ -5,12 +5,6 @@ import debounce from "lodash/debounce";
 import SearchBar from "../search-bar/search-bar.component";
 import { getGifsSearchResults } from "../../redux/gifs/gifs.actions";
 
-/*
-Notes:
-   - Here I used used useCallback and debounce to prevent and api call on every character input
-   - Once the user is done typing I go hit the giphyApi to get the result
-*/
-
 const SearchBarGifs = (props) => {
   const { updateGifsSearch, searchValue, getGifsSearchResults } = props;
 

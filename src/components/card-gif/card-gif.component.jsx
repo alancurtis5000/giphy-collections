@@ -4,14 +4,6 @@ import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { openModal } from "../../redux/modal/modal.actions";
 
-/*
-Notes:
-   -I used redux to control my universal modal component.
-   - on handleRemoveGif it passes ModalId to target a specific modal.
-     and passes modalProps that can be accessed by the modal to perform its actions.
-  - I pass an isEdit value in when I want the ability to delete gifs
-*/
-
 const CardGif = (props) => {
   const { title, url, isEdit, id, match, openModal } = props;
   const collectionId = match.params.id;

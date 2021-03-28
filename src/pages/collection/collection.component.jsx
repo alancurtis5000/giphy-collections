@@ -11,21 +11,6 @@ import TrashIcon from "../../icons/trash.icon";
 import { openModal } from "../../redux/modal/modal.actions";
 import { Warning } from "../../lib";
 
-/*
-Notes:
-  - On the CollectionPage I pull the id from the url. On mount I would normally
-    fetch data with that id so you can route directly to this page.
-    But I already have fetched my data on app mount.
-  - example: open new browser and past collection  url "http://localhost:3000/collection/1"
-  - expectation: You can route to any url in the app from outside links.
-  - I map over the gifs in the collection id from the url
-  - pass in the isEdit do I can delete them only on this page.
-  - functionality:
-    - ability to rename collection
-    - delete gifs
-    - delete entire collection
-*/
-
 const CollectionPage = (props) => {
   const { collections, match, openModal } = props;
   const collectionId = match.params.id;

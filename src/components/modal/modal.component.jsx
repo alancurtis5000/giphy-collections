@@ -7,14 +7,6 @@ import ModalCollectionAdd from "../modal-collection-add/modal-collection-add";
 import ModalCollectionEditName from "../modal-collection-edit-name/modal-collection-edit-name";
 import ModalGifDelete from "../modal-gif-delete/modal-gif-delete";
 
-/*
-Notes:
-   - Model is my global modal component.
-   - it houses all the modals and switches which one is being displayed by id.
-   - modalProps are then spread in to give added functionality.
-   - mapStateToProps: the modal redux state is the one source for all modals.
-*/
-
 const Modal = (props) => {
   const { modal, closeModal } = props;
   const { id, modalProps, isOpen } = modal;

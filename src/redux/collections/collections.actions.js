@@ -3,22 +3,6 @@ import { collectionsActionTypes } from "./collections.types";
 import find from "lodash/find";
 import filter from "lodash/filter";
 
-/*
-Notes:
-  - Using redux thunk pattern to 
-    - Start: tiggers the isFetching / loading status,
-    - Success: assigns the results to redux state
-    - Failure: catches the error and puts that on redux.
-  - Did Full CRUD functionality:
-    - Create Collection
-    - Read Collection
-    - Update Collection
-    - Delete Collection.
-  - I am using json-server library to mimic a backend for storing collections.
-    - Mainly it acts like a server but just updates a local db.json file.
-    - file location is at project root "/db.json"
-*/
-
 export const getCollectionsStart = () => ({
   type: collectionsActionTypes.GET_COLLECTIONS_START,
 });

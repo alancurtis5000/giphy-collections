@@ -4,11 +4,6 @@ import CardGif from "../card-gif/card-gif.component";
 import { connect } from "react-redux";
 import { addGifToCollection } from "../../redux/collections/collections.actions";
 
-/*
-Notes:
-   -DraggableGif is just extra functionality added to the CardGif
-*/
-
 const DndTypes = {
   RESULT: "result",
 };

@@ -1,13 +1,5 @@
 import { collectionsActionTypes } from "./collections.types";
 
-/*
-Notes:
-  - Using redux thunk pattern to 
-    - Start: tiggers the isFetching / loading status,
-    - Success: assigns the results to redux [collections]
-    - Failure: catches the error and puts that in the errorMessage.
-*/
-
 const initialState = {
   collections: [],
   isFetching: false,

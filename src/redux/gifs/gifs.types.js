@@ -1,8 +1,3 @@
-/*
-Notes:
-  - I store all my types in a seperate files. to keep things nice and tidy.
-*/
-
 export const gifsActionTypes = {
   GIFS_UPDATE_SEARCH: "GIFS_UPDATE_SEARCH",
   GIFS_GET_SEARCH_RESULTS_START: "GIFS_GET_SEARCH_RESULTS_START",

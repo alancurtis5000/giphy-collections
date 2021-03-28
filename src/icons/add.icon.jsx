@@ -1,12 +1,5 @@
 import React from "react";
 
-/*
-Notes:
-   - One Note for all Icons.
-   - I like to turn SVGs into react components that way I can pass in props to update the svgs dynamically.
-   - this avoids Png libraries, sprite sheets, and pixelation and other downfalls of images.
-*/
-
 const AddIcon = (props) => {
   const { fill1, height, width, className } = props;
   return (
