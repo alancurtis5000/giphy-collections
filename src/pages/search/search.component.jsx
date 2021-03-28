@@ -1,4 +1,4 @@
-import React, { useEffect, useCallback } from "react";
+import React from "react";
 import SearchBarGifs from "../../components/search-bar-gifs/search-bar-gifs.component";
 import { SearchStyles } from "./search.styles";
 import DraggableGif from "../../components/draggable-gif/draggable-gif.component";
@@ -7,43 +7,12 @@ import map from "lodash/map";
 import AddIcon from "../../icons/add.icon";
 import SpinnerIcon from "../../icons/spinner.icon";
 import { openModal } from "../../redux/modal/modal.actions";
-import { getMoreGifs } from "../../redux/gifs/gifs.actions";
 import { connect } from "react-redux";
 import { Success, Active } from "../../lib";
-import ButtonCustom from "../../components/button-custom/button-custom.component";
-import debounce from "lodash/debounce";
+import SearchResults from "../../components/search-results/search-results.component";
 
 const SearchPage = (props) => {
-  const { collections, openModal, gifs, getMoreGifs } = props;
-
-  const debounceApiCall = useCallback(
-    debounce(() => {
-      getMoreGifs();
-    }, 200),
-    []
-  );
-
-  const handleScroll = () => {
-    const resultsElemtent = document.getElementById("results");
-    if (resultsElemtent) {
-      const scrollHeight = resultsElemtent.scrollHeight;
-      const scrollTop = resultsElemtent.scrollTop;
-      const clientHeight = resultsElemtent.clientHeight;
-      // once you get 200 px from bottom trigger getMoreGifs()
-      if (clientHeight + scrollTop > scrollHeight - 200) {
-        debounceApiCall();
-      }
-    }
-  };
-
-  useEffect(() => {
-    const resultsElemtent = document.getElementById("results");
-    resultsElemtent.addEventListener("scroll", handleScroll, { passive: true });
-
-    return () => {
-      resultsElemtent.addEventListener("scroll", handleScroll);
-    };
-  }, []);
+  const { collections, openModal, gifs } = props;
 
   const results = () => {
     const results = map(gifs.data, (gif, index) => {
@@ -72,23 +41,6 @@ const SearchPage = (props) => {
     openModal(modalId, modalProps);
   };
 
-  const renderGetMoreGifs = () => {
-    if (gifs.pagination.total_count > 20) {
-      if (gifs.pagination.total_count >= gifs.pagination.offset) {
-        return (
-          <ButtonCustom
-            className="custom"
-            type="contained"
-            color="success"
-            onClick={getMoreGifs}
-          >
-            Get More Gifs!
-          </ButtonCustom>
-        );
-      }
-    }
-  };
-
   const renderMessage = () => {
     return (
       <div className="message">
@@ -114,7 +66,7 @@ const SearchPage = (props) => {
         <div className="results-container">
           {gifs.data.length === 0 ? renderMessage() : results()}
         </div>
-        {renderGetMoreGifs()}
+        <SearchResults />
       </div>
       <div className="collections">
         <div className="collections-container">{collectionsMap()}</div>
@@ -129,7 +81,6 @@ const mapStateToProps = (state) => ({
 });
 const mapDispatchToProps = (dispatch) => ({
   openModal: (modalId, modalProps) => dispatch(openModal(modalId, modalProps)),
-  getMoreGifs: () => dispatch(getMoreGifs()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SearchPage);
