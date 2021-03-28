@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useCallback } from "react";
 import SearchBarGifs from "../../components/search-bar-gifs/search-bar-gifs.component";
 import { SearchStyles } from "./search.styles";
 import DraggableGif from "../../components/draggable-gif/draggable-gif.component";
@@ -11,9 +11,39 @@ import { getMoreGifs } from "../../redux/gifs/gifs.actions";
 import { connect } from "react-redux";
 import { Success, Active } from "../../lib";
 import ButtonCustom from "../../components/button-custom/button-custom.component";
+import debounce from "lodash/debounce";
 
 const SearchPage = (props) => {
   const { collections, openModal, gifs, getMoreGifs } = props;
+
+  const debounceApiCall = useCallback(
+    debounce(() => {
+      getMoreGifs();
+    }, 200),
+    []
+  );
+
+  const handleScroll = () => {
+    const resultsElemtent = document.getElementById("results");
+    if (resultsElemtent) {
+      const scrollHeight = resultsElemtent.scrollHeight;
+      const scrollTop = resultsElemtent.scrollTop;
+      const clientHeight = resultsElemtent.clientHeight;
+      // once you get 200 px from bottom trigger getMoreGifs()
+      if (clientHeight + scrollTop > scrollHeight - 200) {
+        debounceApiCall();
+      }
+    }
+  };
+
+  useEffect(() => {
+    const resultsElemtent = document.getElementById("results");
+    resultsElemtent.addEventListener("scroll", handleScroll, { passive: true });
+
+    return () => {
+      resultsElemtent.addEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   const results = () => {
     const results = map(gifs.data, (gif, index) => {
@@ -79,7 +109,7 @@ const SearchPage = (props) => {
           <AddIcon height="28" fill1={Success} />
         </div>
       </div>
-      <div className="results">
+      <div className="results" id="results">
         {gifs.isFetching ? <SpinnerIcon fill1={Active} /> : null}
         <div className="results-container">
           {gifs.data.length === 0 ? renderMessage() : results()}
