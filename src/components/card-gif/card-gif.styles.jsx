@@ -8,7 +8,7 @@ export const CardGifStyles = styled.div`
   justify-content: center;
   align-items: center;
   img {
-    max-height: 115px;
+    max-height: 200px;
     max-width: 169px;
   }
   .remove-container {

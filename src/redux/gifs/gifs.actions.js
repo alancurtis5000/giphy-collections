@@ -1,5 +1,6 @@
 import { gifsActionTypes } from "./gifs.types";
 import axios from "axios";
+import { gifDummyData } from "./gifs.data";
 
 export const updateGifsSearch = (value) => ({
   type: gifsActionTypes.GIFS_UPDATE_SEARCH,
@@ -23,14 +24,20 @@ export const getGifsSearchResultsFailure = (errorMessage) => ({
 export const getGifsSearchResults = (searchValue) => {
   return (dispatch) => {
     dispatch(getGifsSearchResultsStart());
-    axios
-      .get(
-        `http://api.giphy.com/v1/gifs/search?api_key=dc6zaTOxFJmzC&limit=20&offset=0&rating=pg-13&q=${searchValue}`
-      )
-      .then((res) => {
-        dispatch(getGifsSearchResultsSuccess(res.data));
-      })
-      .catch((error) => dispatch(getGifsSearchResultsFailure(error.message)));
+    let testing = true;
+    if (testing) {
+      console.log(gifDummyData);
+      dispatch(getGifsSearchResultsSuccess(gifDummyData));
+    } else {
+      axios
+        .get(
+          `http://api.giphy.com/v1/gifs/search?api_key=dc6zaTOxFJmzC&limit=20&offset=0&rating=pg-13&q=${searchValue}`
+        )
+        .then((res) => {
+          dispatch(getGifsSearchResultsSuccess(res.data));
+        })
+        .catch((error) => dispatch(getGifsSearchResultsFailure(error.message)));
+    }
   };
 };
 

@@ -25,7 +25,7 @@ const CardGif = (props) => {
       onClick={isEdit ? handleRemoveGif : null}
     >
       <img src={url} alt={`gif ${title}`} />
-      <h5 className="title">{title}</h5>
+      {/* <h5 className="title">{title}</h5> */}
     </CardGifStyles>
   );
 };
