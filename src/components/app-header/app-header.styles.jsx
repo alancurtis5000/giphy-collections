@@ -15,6 +15,12 @@ export const AppHeaderStyles = styled.header`
     .page-title{
       color: white;
     }
+    @media (max-width: 768px) {
+      .page-title{
+        color: white;
+        font-size: 16px;
+      }
+    }
     .left-group{  
       display: flex;
       align-items: center;
@@ -22,12 +28,6 @@ export const AppHeaderStyles = styled.header`
       .company-logo{
         height: 50px;
       }
-      // @media (max-width: 768px) {
-      //   flex-direction: column;
-      //   .company-logo{
-      //     height: 50px;
-      //   }
-      // }
     }
     .right-group {
       display: flex;

@@ -21,6 +21,10 @@ export const CollectionStyles = styled.div`
         margin: 0 14px;
       }
     }
+    @media (max-width: 768px) {
+      padding: 4px 20px
+      padding-right: 0px;
+    }
   }
   
   .results {
