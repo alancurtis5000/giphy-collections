@@ -3,7 +3,6 @@ import { companyLogo } from "../../images";
 import { AppHeaderStyles } from "./app-header.styles";
 import { withRouter } from "react-router-dom";
 import { NavLink } from "react-router-dom";
-import poweredByGiphy from "../../images/powered-by-giphy.png";
 
 const AppHeader = (props) => {
   const { history, location } = props;
@@ -22,12 +21,11 @@ const AppHeader = (props) => {
       <div className="header-container">
         <div className="left-group">
           <img
+            className="company-logo"
             src={companyLogo}
             alt="Company logo"
-            height="60px"
             onClick={() => history.push("/")}
           />
-          <img src={poweredByGiphy} alt="powered by giphy" />
         </div>
         <h2 className="page-title">{pageTitle}</h2>
         <div className="right-group">

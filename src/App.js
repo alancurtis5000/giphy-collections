@@ -7,6 +7,7 @@ import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import { connect } from "react-redux";
 import { getCollections } from "./redux/collections/collections.actions";
+import poweredByGiphy from "./images/powered-by-giphy.png";
 
 const App = (props) => {
   const { getCollections } = props;
@@ -21,6 +22,7 @@ const App = (props) => {
         <AppRouter />
       </DndProvider>
       <Modal />
+      <img className="giphy" src={poweredByGiphy} alt="powered by giphy" />
     </div>
   );
 };

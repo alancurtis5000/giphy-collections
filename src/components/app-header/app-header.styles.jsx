@@ -19,6 +19,15 @@ export const AppHeaderStyles = styled.header`
       display: flex;
       align-items: center;
       justify-content: center; 
+      .company-logo{
+        height: 50px;
+      }
+      // @media (max-width: 768px) {
+      //   flex-direction: column;
+      //   .company-logo{
+      //     height: 50px;
+      //   }
+      // }
     }
     .right-group {
       display: flex;

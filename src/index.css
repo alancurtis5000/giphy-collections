@@ -28,6 +28,12 @@ a {
   box-sizing: border-box;
 }
 
+.giphy {
+  position: fixed;
+  bottom: 10px;
+  right: 2px;
+}
+
 h1,
 h2,
 h3,
