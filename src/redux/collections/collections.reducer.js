@@ -30,6 +30,11 @@ const collectionsReducer = (state = initialState, action) => {
       return { ...state, isFetching: false };
     case collectionsActionTypes.COLLECTIONS_EDIT_NAME_FAILURE:
       return { ...state, errorMessage: action.payload, isFetching: false };
+    // EDIT isShared on collection
+    case collectionsActionTypes.COLLECTIONS_EDIT_IS_SHARED_START:
+      return { ...state, isFetching: true };
+    case collectionsActionTypes.COLLECTIONS_EDIT_IS_SHARED_FAILURE:
+      return { ...state, errorMessage: action.payload, isFetching: false };
     // POST new collection to collections
     case collectionsActionTypes.COLLECTIONS_ADD_NEW_COLLECTION_START:
       return { ...state, isFetching: true };

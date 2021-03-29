@@ -179,3 +179,34 @@ export const deleteGif = (collectionId, gifId) => {
       .catch((error) => dispatch(deleteGifFailure(error.message)));
   };
 };
+
+export const editCollectionIsSharedStart = () => ({
+  type: collectionsActionTypes.COLLECTIONS_EDIT_IS_SHARED_START,
+});
+
+export const editCollectionIsSharedFailure = (errorMessage) => ({
+  type: collectionsActionTypes.COLLECTIONS_EDIT_IS_SHARED_FAILURE,
+  payload: errorMessage,
+});
+
+export const editCollectionIsShared = (collectionId, collectionIsShared) => {
+  return (dispatch, getState) => {
+    dispatch(editCollectionIsSharedStart());
+    const collections = getState("collections").collections.collections;
+    const collection = find(
+      collections,
+      (collection) => collection.id * 1 === collectionId * 1
+    );
+    const body = {
+      ...collection,
+      isShared: collectionIsShared,
+    };
+    console.log({ body, collectionId, collectionIsShared, collection });
+    axios
+      .put(`/collections/${collectionId}`, body)
+      .then((res) => {
+        dispatch(getCollections());
+      })
+      .catch((error) => dispatch(editCollectionIsSharedFailure(error.message)));
+  };
+};

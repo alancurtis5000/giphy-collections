@@ -12,9 +12,10 @@ import { openModal } from "../../redux/modal/modal.actions";
 import { Warning } from "../../lib";
 import ButtonCustom from "../../components/button-custom/button-custom.component";
 import StarIcon from "../../icons/star.icon";
+import { editCollectionIsShared } from "../../redux/collections/collections.actions";
 
 const CollectionPage = (props) => {
-  const { collections, match, openModal } = props;
+  const { collections, match, openModal, editCollectionIsShared } = props;
   const collectionId = match.params.id;
   const collection = find(
     collections,
@@ -60,6 +61,7 @@ const CollectionPage = (props) => {
 
   const handleShareCollection = () => {
     console.log("handle Share collection");
+    editCollectionIsShared(collectionId, !collection.isShared);
   };
 
   const renderShareCollectionButton = () => {
@@ -106,6 +108,8 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   openModal: (modalId, modalProps) => dispatch(openModal(modalId, modalProps)),
+  editCollectionIsShared: (collectionId, updatedCollectionIsShared) =>
+    dispatch(editCollectionIsShared(collectionId, updatedCollectionIsShared)),
 });
 
 export default connect(
