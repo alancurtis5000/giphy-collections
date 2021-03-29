@@ -4,11 +4,11 @@ import { LightGray } from "../../lib";
 export const CollectionStyles = styled.div`
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 38px 1fr;
+  grid-template-rows: auto 1fr;
   width: 100%;
 
   .header {
-    padding: 0px 20px
+    padding: 4px 20px
     background-color: ${LightGray}
     display: flex;
     justify-content: space-between;
@@ -22,6 +22,7 @@ export const CollectionStyles = styled.div`
       }
     }
   }
+  
   .results {
     overflow: auto;
     .results-container {
