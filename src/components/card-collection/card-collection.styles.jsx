@@ -6,11 +6,12 @@ export const CardCollectionStyles = styled.div`
   flex-direction: column;
   align-items: center;
   margin: 5px 5px;
+  position: relative;
   &:hover {
     background-color: ${Active};
   }
   .star {
-    position: relative;
-    bottom: 33px;
+    position: absolute;
+    bottom: 30px;
   }
 `;
