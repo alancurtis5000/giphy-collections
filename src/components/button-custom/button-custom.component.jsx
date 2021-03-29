@@ -1,5 +1,5 @@
 import React from "react";
-import { ButtonCustomStyles } from "./button-custome.styles";
+import { ButtonCustomStyles } from "./button-custom.styles";
 
 const ButtonCustom = ({ children, ...props }) => {
   return (
