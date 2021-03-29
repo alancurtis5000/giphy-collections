@@ -14,7 +14,12 @@ const SearchPage = (props) => {
 
   const collectionsMap = () => {
     let array = map(collections, (collection) => (
-      <Dropzone key={collection.id} name={collection.name} id={collection.id} />
+      <Dropzone
+        key={collection.id}
+        name={collection.name}
+        id={collection.id}
+        isShared={collection.isShared}
+      />
     ));
     return array;
   };

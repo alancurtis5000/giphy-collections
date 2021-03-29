@@ -9,4 +9,8 @@ export const CardCollectionStyles = styled.div`
   &:hover {
     background-color: ${Active};
   }
+  .star {
+    position: relative;
+    bottom: 33px;
+  }
 `;

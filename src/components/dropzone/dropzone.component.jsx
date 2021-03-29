@@ -7,7 +7,8 @@ const DndTypes = {
 };
 
 const Dropzone = (props) => {
-  const { name, id } = props;
+  const { name, id, isShared } = props;
+
   const [{ canDrop, isOver }, drop] = useDrop({
     accept: DndTypes.RESULT,
     drop: (item, monitor) => {
@@ -21,7 +22,7 @@ const Dropzone = (props) => {
 
   return (
     <div ref={drop}>
-      <CardCollection title={name} id={id} />
+      <CardCollection title={name} id={id} isShared={isShared} />
     </div>
   );
 };
