@@ -10,6 +10,8 @@ import EditIcon from "../../icons/edit.icon";
 import TrashIcon from "../../icons/trash.icon";
 import { openModal } from "../../redux/modal/modal.actions";
 import { Warning } from "../../lib";
+import ButtonCustom from "../../components/button-custom/button-custom.component";
+import StarIcon from "../../icons/star.icon";
 
 const CollectionPage = (props) => {
   const { collections, match, openModal } = props;
@@ -56,6 +58,27 @@ const CollectionPage = (props) => {
     openModal(modalId, modalProps);
   };
 
+  const handleShareCollection = () => {
+    console.log("handle Share collection");
+  };
+
+  const renderShareCollectionButton = () => {
+    if (!collection) return;
+    if (collection.isShared) {
+      return (
+        <ButtonCustom type="contained" onClick={handleShareCollection}>
+          Stop Sharing {<StarIcon fill1="gold" height="20" />}
+        </ButtonCustom>
+      );
+    } else {
+      return (
+        <ButtonCustom type="contained" onClick={handleShareCollection}>
+          Share Collection {<StarIcon fill1="grey" height="20" />}
+        </ButtonCustom>
+      );
+    }
+  };
+
   return (
     <CollectionStyles className="page">
       <div className="header">
@@ -68,7 +91,7 @@ const CollectionPage = (props) => {
           </div>
           <h4 className="collection-name">{get(collection, "name", "")}</h4>
         </div>
-        <div className="right"></div>
+        <div className="right">{renderShareCollectionButton()}</div>
       </div>
       <div className="results">
         <div className="results-container">{gifMap()}</div>
